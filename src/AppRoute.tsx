@@ -1,12 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SignIn from "./domain/Signin/container/SignIn";
 
 function AppRoute() {
   return (
     <Router>
       <Switch>
         <Route path="/workflow/:id">Workflow</Route>
-        <Route path="/signIn">Sign In</Route>
+        <Route path="/signIn">
+          <SignIn />
+        </Route>
         <Route path="/workflow">Workflow List</Route>
         <Route path="/">Workflow List</Route>
       </Switch>
