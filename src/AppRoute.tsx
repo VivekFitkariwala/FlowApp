@@ -7,12 +7,15 @@ import {
 } from "react-router-dom";
 import SignIn from "./domain/Signin/container/SignIn";
 import Home from "./domain/Home/container/Home";
+import Workflow from "./domain/Workflow/container/Workflow";
 
 function AppRoute() {
   return (
     <Router>
       <Switch>
-        <Route path="/workflow/:id">Workflow</Route>
+        <Route path="/workflow/:id">
+          <Workflow />
+        </Route>
         <Route path="/signIn">
           <SignIn />
         </Route>
