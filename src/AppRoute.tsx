@@ -1,6 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import SignIn from "./domain/Signin/container/SignIn";
+import Home from "./domain/Home/container/Home";
 
 function AppRoute() {
   return (
@@ -10,8 +16,21 @@ function AppRoute() {
         <Route path="/signIn">
           <SignIn />
         </Route>
-        <Route path="/workflow">Workflow List</Route>
-        <Route path="/">Workflow List</Route>
+        <Route path="/workflow">
+          <Home />
+        </Route>
+        <Route
+          path="/"
+          render={() => {
+            return (
+              <Redirect
+                to={{
+                  pathname: "/workflow",
+                }}
+              />
+            );
+          }}
+        ></Route>
       </Switch>
     </Router>
   );
