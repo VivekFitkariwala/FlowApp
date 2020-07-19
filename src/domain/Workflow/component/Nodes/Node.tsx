@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Fab,
-  Grid,
-  CardContent,
-  Card,
-  TextField,
-  TextareaAutosize,
-} from "@material-ui/core";
+import { Fab, Grid, CardContent, Card, TextField } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import useStyles from "./Nodes.style";
 

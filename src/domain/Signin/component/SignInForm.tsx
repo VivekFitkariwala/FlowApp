@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useStyles from "./Form.style";
+import useStyles from "./SignInForm.style";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
@@ -10,10 +10,32 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import EmailIcon from "@material-ui/icons/Email";
+import LockIcon from "@material-ui/icons/Lock";
 
-function LoginForm() {
+type IProps = {
+  signIn: (email: string, password: string, setChecked: boolean) => void;
+};
+
+function SignInForm({ signIn }: IProps) {
   const classes = useStyles();
-  const [checked, setChecked] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [checked, setChecked] = useState(false);
+  const handleEmail = ({
+    target: { value },
+  }: {
+    target: { value: string };
+  }) => {
+    setEmail(value);
+  };
+  const handlePassword = ({
+    target: { value },
+  }: {
+    target: { value: string };
+  }) => {
+    setPassword(value);
+  };
   const handleChecked = () => {
     setChecked(!checked);
   };
@@ -24,23 +46,35 @@ function LoginForm() {
         <TextField
           className={classes.root}
           placeholder="Email"
-          value=""
+          value={email}
+          onChange={handleEmail}
           margin="normal"
+          type="email"
           variant="outlined"
           fullWidth={true}
           InputProps={{
-            startAdornment: <InputAdornment position="start">E</InputAdornment>,
+            startAdornment: (
+              <InputAdornment position="start">
+                <EmailIcon />
+              </InputAdornment>
+            ),
           }}
         />
         <TextField
           className={classes.root}
           placeholder="Password"
-          value=""
+          value={password}
+          onChange={handlePassword}
           margin="normal"
+          type="password"
           variant="outlined"
           fullWidth={true}
           InputProps={{
-            startAdornment: <InputAdornment position="start">P</InputAdornment>,
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockIcon />
+              </InputAdornment>
+            ),
           }}
         />
         <Checkbox
@@ -53,7 +87,12 @@ function LoginForm() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" color="primary" fullWidth={true}>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth={true}
+          onClick={() => signIn(email, password, checked)}
+        >
           Login
         </Button>
       </CardActions>
@@ -68,4 +107,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SignInForm;
