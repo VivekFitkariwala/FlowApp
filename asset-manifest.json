@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/flowapp/static/css/main.901240e5.chunk.css",
+    "main.js": "/flowapp/static/js/main.8a875c90.chunk.js",
+    "main.js.map": "/flowapp/static/js/main.8a875c90.chunk.js.map",
+    "runtime-main.js": "/flowapp/static/js/runtime-main.875ecf16.js",
+    "runtime-main.js.map": "/flowapp/static/js/runtime-main.875ecf16.js.map",
+    "static/js/2.bb33719f.chunk.js": "/flowapp/static/js/2.bb33719f.chunk.js",
+    "static/js/2.bb33719f.chunk.js.map": "/flowapp/static/js/2.bb33719f.chunk.js.map",
+    "index.html": "/flowapp/index.html",
+    "precache-manifest.d31fdeb1d0167d7acfd8c966eeb4fc64.js": "/flowapp/precache-manifest.d31fdeb1d0167d7acfd8c966eeb4fc64.js",
+    "service-worker.js": "/flowapp/service-worker.js",
+    "static/css/main.901240e5.chunk.css.map": "/flowapp/static/css/main.901240e5.chunk.css.map",
+    "static/js/2.bb33719f.chunk.js.LICENSE.txt": "/flowapp/static/js/2.bb33719f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.875ecf16.js",
+    "static/js/2.bb33719f.chunk.js",
+    "static/css/main.901240e5.chunk.css",
+    "static/js/main.8a875c90.chunk.js"
+  ]
+}
