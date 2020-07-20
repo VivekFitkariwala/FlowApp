@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import SignInForm from "../component/SignInForm";
 import useStyles from "./SignIn.style";
-import { AppContext } from "../../../hooks/context";
-import { APP_ACTION } from "../../../hooks/actions";
 import { useLocation, useHistory } from "react-router-dom";
+import { AuthContext } from "../../../hooks/auth/context";
+import { dispatchSignIn } from "../../../hooks/auth/action";
 
 function SignIn() {
   const classes = useStyles();
-  const [, dispatch] = useContext(AppContext);
+  const [, dispatch] = useContext(AuthContext);
   const { state } = useLocation();
   const history = useHistory();
 
@@ -16,15 +16,7 @@ function SignIn() {
     password: string,
     rememberMe: boolean
   ): void {
-    dispatch({
-      type: APP_ACTION.LOGIN,
-      payload: {
-        email,
-        password,
-        rememberMe,
-      },
-    });
-
+    dispatchSignIn(dispatch, email, password, rememberMe);
     // redirect to state
     history.push((state && (state as any).from) || "/");
   }
